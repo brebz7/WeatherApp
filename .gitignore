@@ -1,0 +1,9 @@
+node_modules/
+client/node_modules/
+client/.git
+client/public/
+client/src
+client/.gitignore
+client/package-lock.json
+client/package.json
+client/README.md
