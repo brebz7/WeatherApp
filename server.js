@@ -3,6 +3,7 @@ const path = require('path');
 const fetch = require('node-fetch');
 const app = express();
 const port = process.env.PORT || 3001;
+var moment = require('moment');
 const DarkSkyKey = '0e30c595b970a22fbc4986f76baa89f8';
 
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -24,8 +25,21 @@ app.post('/api/coords', (req, res) => {
   fetch(`https://api.darksky.net/forecast/${DarkSkyKey}/${lat},${lon}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
-      res.json(data.currently.summary)
+      let weatherData = {
+        currently: {
+          time: moment.unix(data.currently.time).format("dddd, MMMM Do YYYY, h:mm:ss a"),
+          summary: data.currently.summary,
+          temperature: data.currently.temperature,
+          precipProbability: data.currently.precipProbability,
+          precipType: data.currently.precipType,
+          humidity: data.currently.humidity,
+          pressure: data.currently.pressure,
+          windSpeed: data.currently.windSpeed,
+          visibility: data.currently.visibility
+        }
+      }
+      //res.json(data.currently.summary);
+      res.json(weatherData);
     })
     .catch((err) => console.log(err));
 })

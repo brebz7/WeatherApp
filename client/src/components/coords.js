@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import styles from './coords.module.css'
 
+import WeatherInformation from './weatherInformation';
 
 class Coords extends Component {
   state = {
     coords: {},
-    vremea: ''
+    infoReceived: false,
+    infoWeather: ''
   }
 
   getCoords = () => {
@@ -31,7 +34,7 @@ class Coords extends Component {
     }
   }
 
-  logMe = () => {
+  bringWeatherData = () => {
     let coords = this.state.coords;
     const options = {
       method: 'POST',
@@ -40,20 +43,53 @@ class Coords extends Component {
       },
       body: JSON.stringify(coords)
     }
-    console.log(coords);
+
     fetch(`/api/coords`, options)
       .then(response => response.json())
-      .then(vremea => this.setState({ vremea }));
+      .then(infoWeather => {
+        this.setState({ infoReceived: true, infoWeather })
+      }
+      );
   }
 
   render() {
-    return (
-      <div>
-        <p>Coords: {this.displayCoords()}</p>
-        <p>Weather: {this.state.vremea}</p>
-        <Button variant="contained" color="primary" onClick={this.logMe}>Get Weather Info</Button>
-      </div>
-    );
+    if (!this.state.infoReceived) {
+      return (
+        <div>
+          <p className={styles.coordsText}>
+            Coords: {this.displayCoords()}
+          </p>
+          <Button variant="contained" color="primary" onClick={this.bringWeatherData}>Get Weather Info</Button>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div>
+          <p className={styles.coordsText}>
+            Coords: {this.displayCoords()}
+          </p>
+          {/* <p className={styles.weatherText}>
+            Weather: {this.state.infoWeather.currently.summary}
+          </p> */}
+          <WeatherInformation data={this.state.infoWeather}/>
+          <Button variant="contained" color="primary" onClick={this.bringWeatherData}>Get Weather Info</Button>
+        </div>
+      )
+
+    }
+    // return (
+    //   <div>
+    //     <p className={styles.coordsText}>
+    //       Coords: {this.displayCoords()}
+    //     </p>
+    //     <p className={styles.weatherText}>
+    //       Weather: {this.state.infoWeather ? this.state.infoWeather.currently.summary : ''}
+    //     </p>
+
+    //     <Button variant="contained" color="primary" onClick={this.bringWeatherData}>Get Weather Info</Button>
+    //   </div>
+    // );
   }
 }
 

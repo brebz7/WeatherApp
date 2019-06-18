@@ -1,0 +1,1 @@
+{"version":3,"sources":["coords.module.css"],"names":[],"mappings":"AAGA,qDACE,kBACF","file":"main.25483597.chunk.css","sourcesContent":[".coordsText {\r\n  font-family: Roboto;\r\n}\r\n.weatherText {\r\n  font-family: Roboto;\r\n}\r\n"]}
