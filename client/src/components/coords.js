@@ -81,18 +81,6 @@ class Coords extends Component {
       )
 
     }
-    // return (
-    //   <div>
-    //     <p className={styles.coordsText}>
-    //       Coords: {this.displayCoords()}
-    //     </p>
-    //     <p className={styles.weatherText}>
-    //       Weather: {this.state.infoWeather ? this.state.infoWeather.currently.summary : ''}
-    //     </p>
-
-    //     <Button variant="contained" color="primary" onClick={this.bringWeatherData}>Get Weather Info</Button>
-    //   </div>
-    // );
   }
 }
 
