@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import styles from './coords.module.css'
 
 import WeatherInformation from './weatherInformation';
+import HourlyWeatherInformation from './hourlyWeatherInformation';
 
 class Coords extends Component {
   state = {
@@ -73,7 +74,8 @@ class Coords extends Component {
           {/* <p className={styles.weatherText}>
             Weather: {this.state.infoWeather.currently.summary}
           </p> */}
-          <WeatherInformation data={this.state.infoWeather}/>
+          <WeatherInformation data={this.state.infoWeather} />
+          <HourlyWeatherInformation data={this.state.infoWeather} />
           <Button variant="contained" color="primary" onClick={this.bringWeatherData}>Get Weather Info</Button>
         </div>
       )

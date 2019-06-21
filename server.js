@@ -41,7 +41,8 @@ app.post('/api/coords', (req, res) => {
         hourly: {
           data: data.hourly.data
             .map(data => {
-              data.time = moment.unix(data.time).format("dddd, MMMM Do YYYY, h:mm:ss a")
+              data.time = moment.unix(data.time).format("h:mm");
+              data.temperature = ((data.temperature - 32) * 5/9).toFixed(2);
               return data;
             })
         }
