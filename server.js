@@ -25,6 +25,7 @@ app.post('/api/coords', (req, res) => {
   fetch(`https://api.darksky.net/forecast/${DarkSkyKey}/${lat},${lon}`)
     .then(response => response.json())
     .then(data => {
+
       let weatherData = {
         currently: {
           time: moment.unix(data.currently.time).format("dddd, MMMM Do YYYY, h:mm:ss a"),
@@ -36,9 +37,16 @@ app.post('/api/coords', (req, res) => {
           pressure: data.currently.pressure,
           windSpeed: data.currently.windSpeed,
           visibility: data.currently.visibility
+        },
+        hourly: {
+          data: data.hourly.data
+            .map(data => {
+              data.time = moment.unix(data.time).format("dddd, MMMM Do YYYY, h:mm:ss a")
+              return data;
+            })
         }
       }
-      //res.json(data.currently.summary);
+
       res.json(weatherData);
     })
     .catch((err) => console.log(err));

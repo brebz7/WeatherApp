@@ -47,6 +47,7 @@ class Coords extends Component {
     fetch(`/api/coords`, options)
       .then(response => response.json())
       .then(infoWeather => {
+        console.log(infoWeather);
         this.setState({ infoReceived: true, infoWeather })
       }
       );
