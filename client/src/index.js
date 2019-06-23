@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Body from './components/body.js'
+
 import Header from './components/header.js';
 import Coords from './components/coords.js'
+
+import Container from '@material-ui/core/Container';
 
 
 const App = () => {
   return (
-    <Body>
-      <Header />
-      <Coords />
-    </Body>
-  )
+  <Container maxWidth="sm">
+    <Header />
+    <Coords />
+  </Container>  
+  )             
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
