@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+
 import Button from '@material-ui/core/Button';
-import styles from './coords.module.css'
+import Box from '@material-ui/core/Box';
+
+import styles from './comps.module.css';
+import horizontalScrollBarStyle from './horizontalScrollBar.module.css';
 
 import WeatherInformation from './weatherInformation';
 import HourlyWeatherInformation from './hourlyWeatherInformation';
@@ -71,12 +75,12 @@ class Coords extends Component {
           <p className={styles.coordsText}>
             Coords: {this.displayCoords()}
           </p>
-          {/* <p className={styles.weatherText}>
-            Weather: {this.state.infoWeather.currently.summary}
-          </p> */}
           <WeatherInformation data={this.state.infoWeather} />
-          <HourlyWeatherInformation data={this.state.infoWeather} />
-          <Button variant="contained" color="primary" onClick={this.bringWeatherData}>Get Weather Info</Button>
+          <Box mb={2}>
+            <HourlyWeatherInformation className={horizontalScrollBarStyle} data={this.state.infoWeather} />
+          </Box>
+          <Button variant="contained" color="primary" onClick={this.bringWeatherData} mb={2}>Get Weather Info</Button>
+
         </div>
       )
 

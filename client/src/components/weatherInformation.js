@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './coords.module.css';
+import styles from './comps.module.css';
 
 const WeatherInformation = (props) => {
   return (
@@ -11,8 +11,8 @@ const WeatherInformation = (props) => {
         Time: {props.data.currently.time}
       </p>
       <p>
-        Temperature: {props.data.currently.temperature}°F / 
-        {((props.data.currently.temperature - 32) * 5/9).toFixed(2)}°C
+        Temperature: {props.data.currently.temperature}°F /
+        {((props.data.currently.temperature - 32) * 5 / 9).toFixed(2)}°C
       </p>
       <p>
         Humidity: {props.data.currently.humidity}

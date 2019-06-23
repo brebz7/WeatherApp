@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './coords.module.css';
+import styles from './comps.module.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
