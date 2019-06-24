@@ -23,7 +23,7 @@ const WeatherInformation = (props) => {
       <Grid container spacing={2} alignItems="space-between">
         <Grid item md={6}>
           <WeatherCard
-            data={props.data.currently.pressure}
+            data={`${props.data.currently.pressure} pHa`}
             title={'Pressure'} />
         </Grid>
         <Grid item md={6}>
