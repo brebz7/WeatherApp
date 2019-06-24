@@ -71,7 +71,7 @@ class Coords extends Component {
     }
     else {
       return (
-        <div>
+        <Box>
           <p className={styles.coordsText}>
             Coords: {this.displayCoords()}
           </p>
@@ -81,7 +81,7 @@ class Coords extends Component {
           </Box>
           <Button variant="contained" color="primary" onClick={this.bringWeatherData} mb={2}>Get Weather Info</Button>
 
-        </div>
+        </Box>
       )
 
     }
