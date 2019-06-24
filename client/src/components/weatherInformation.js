@@ -15,7 +15,7 @@ const WeatherInformation = (props) => {
         {((props.data.currently.temperature - 32) * 5 / 9).toFixed(2)}°C
       </p>
       <p>
-        Humidity: {props.data.currently.humidity}
+        Humidity: {props.data.currently.humidity} %
       </p>
       <p>
         Pressure: {props.data.currently.pressure}

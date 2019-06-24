@@ -33,7 +33,7 @@ app.post('/api/coords', (req, res) => {
           temperature: data.currently.temperature,
           precipProbability: data.currently.precipProbability,
           precipType: data.currently.precipType,
-          humidity: data.currently.humidity,
+          humidity: (data.currently.humidity * 100).toFixed(0),
           pressure: data.currently.pressure,
           windSpeed: data.currently.windSpeed,
           visibility: data.currently.visibility
