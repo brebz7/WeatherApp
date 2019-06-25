@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
-    // minWidth: 260,
-    // maxWidth: 265
     flex: 1
   },
   title: {
