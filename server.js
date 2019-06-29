@@ -4,7 +4,10 @@ const fetch = require('node-fetch');
 const app = express();
 const port = process.env.PORT || 3001;
 var moment = require('moment');
-const DarkSkyKey = '0e30c595b970a22fbc4986f76baa89f8';
+require('dotenv').config();
+
+const DarkSkyKey = process.env.API_KEY_DARKSKY;
+const LocationIqKey = process.env.API_KEY_LOCATIONIQ;
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(express.json());
@@ -22,10 +25,10 @@ app.post('/api/coords', (req, res) => {
   let coords = req.body;
   let lat = coords.lat;
   let lon = coords.lon;
+
   fetch(`https://api.darksky.net/forecast/${DarkSkyKey}/${lat},${lon}`)
     .then(response => response.json())
     .then(data => {
-
       let weatherData = {
         currently: {
           time: moment.unix(data.currently.time).format("dddd, MMMM Do YYYY, h:mm:ss a"),
@@ -42,13 +45,30 @@ app.post('/api/coords', (req, res) => {
           data: data.hourly.data
             .map(data => {
               data.time = moment.unix(data.time).format("h:mm");
-              data.temperature = ((data.temperature - 32) * 5/9).toFixed(2);
+              data.temperature = ((data.temperature - 32) * 5 / 9).toFixed(2);
               return data;
             })
         }
       }
-
       res.json(weatherData);
+    })
+    .catch((err) => console.log(err));
+})
+
+app.post('/api/locationAddress', (req,res) => {
+  let coords = req.body;
+  let lat = coords.lat;
+  let lon = coords.lon;
+  fetch(`https://eu1.locationiq.com/v1/reverse.php?key=${LocationIqKey}&lat=${lat}&lon=${lon}&format=json`)
+    .then(response => response.json())
+    .then(data => {
+      let locationAddress = {
+        suburb: data.address.suburb,
+        town: data.address.town,
+        county: data.address.county,
+        country: data.address.country
+      }
+      res.json(locationAddress);
     })
     .catch((err) => console.log(err));
 })

@@ -23,7 +23,6 @@ function createData(time, temperature) {
   return { time, temperature }
 }
 
-
 const HourlyWeatherInformation = (props) => {
   const rows = [];
   for (let i = 1; i <= 24; i++)
