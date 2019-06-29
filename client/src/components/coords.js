@@ -90,7 +90,7 @@ class Coords extends Component {
       return (
         <Box>
           <p className={styles.coordsText}>
-            Location: {this.state.locationAddress.town}
+            Location: {`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`}
           </p>
           <WeatherInformation data={this.state.infoWeather} />
           <Box mb={2} onClick={this.sliderMouseDown} >
