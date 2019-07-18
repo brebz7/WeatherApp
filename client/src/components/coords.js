@@ -77,7 +77,7 @@ class Coords extends Component {
           <p className={styles.coordsText}>
             {}
           </p>
-          <Button variant="contained" color="primary" onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}>Get Weather Info</Button>
+          <Button variant="contained" color="primary" onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}>Loading Weather ...</Button>
         </div>
       )
     }
