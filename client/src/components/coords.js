@@ -30,15 +30,15 @@ class Coords extends Component {
     })
   }
   
-  displayCoords = () => {  //unused
-    if ("geolocation" in navigator) {
-      this.getCoords();
-      return ` ${this.state.coords.lat}, ${this.state.coords.lon}`;
-    }
-    else {
-      return ` Geolocation is disabled`;
-    }
-  }
+  // displayCoords = () => {  //unused
+  //   if ("geolocation" in navigator) {
+  //     this.getCoords();
+  //     return ` ${this.state.coords.lat}, ${this.state.coords.lon}`;
+  //   }
+  //   else {
+  //     return ` Geolocation is disabled`;
+  //   }
+  // }
 
   bringWeatherData = () => {
     let coords = this.state.coords;
