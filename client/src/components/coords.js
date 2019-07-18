@@ -102,7 +102,7 @@ class Coords extends Component {
             color="primary"
             onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}
             mb={2}>
-            Get Weather Info
+            Refresh
           </Button>
 
         </Box>
