@@ -11,3 +11,8 @@
   margin-top: 15px;
 }
 
+.refreshButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+

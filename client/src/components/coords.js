@@ -74,7 +74,7 @@ class Coords extends Component {
     if (!this.state.infoWeatherReceived || !this.state.locationAddressReceived) {
       return (
         <div className={styles.loadingButtonContainer}>
-          <Button variant="contained" color="primary" onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}>Loading Weather ...</Button>
+          <Button variant="contained" color="primary" onClick={() => { this.bringWeatherData(); this.bringLocationAddress() }}>Loading Weather ...</Button>
         </div>
       )
     }
@@ -91,14 +91,15 @@ class Coords extends Component {
               data={this.state.infoWeather}
             />
           </Box>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}
-            mb={2}>
-            Refresh
+          <div className={styles.refreshButtonContainer}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => { this.bringWeatherData(); this.bringLocationAddress() }}
+              mb={2}>
+              Refresh
           </Button>
-
+          </div>
         </Box>
       )
 
