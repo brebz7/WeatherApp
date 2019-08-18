@@ -8,7 +8,7 @@ import horizontalScrollBarStyle from './horizontalScrollBar.module.css';
 
 import WeatherInformation from './weatherInformation';
 import HourlyWeatherInformation from './hourlyWeatherInformation';
-import WeatherCard from './weatherCard';
+import LocationCard from './locationCard';
 
 class Coords extends Component {
   state = {
@@ -83,7 +83,7 @@ class Coords extends Component {
       return (
         <Box>
           <p>
-            <WeatherCard title="Location" data={`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`} />
+            <LocationCard title="Location" data={`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`} />
           </p>
           <WeatherInformation data={this.state.infoWeather} />
           <Box mb={2} onClick={this.sliderMouseDown} >

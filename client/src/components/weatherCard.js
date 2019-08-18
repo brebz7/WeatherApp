@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     flex: 1
   },
   title: {
-    fontSize: 14,
+    fontSize: 14
   },
   pos: {
     marginBottom: 12,
