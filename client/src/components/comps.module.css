@@ -4,3 +4,10 @@
 .weatherText {
   font-family: Roboto;
 }
+
+.loadingButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
