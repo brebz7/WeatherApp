@@ -85,9 +85,6 @@ class Coords extends Component {
       return (
         <Box>
           <p className={styles.coordsText}>
-            {}
-          </p>
-          <p className={styles.coordsText}>
             Location: {`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`}
           </p>
           <WeatherInformation data={this.state.infoWeather} />
