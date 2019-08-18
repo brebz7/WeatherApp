@@ -74,9 +74,6 @@ class Coords extends Component {
     if (!this.state.infoWeatherReceived || !this.state.locationAddressReceived) {
       return (
         <div>
-          <p className={styles.coordsText}>
-            {}
-          </p>
           <Button variant="contained" color="primary" onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}>Loading Weather ...</Button>
         </div>
       )
