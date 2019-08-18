@@ -18,8 +18,11 @@ class Coords extends Component {
     locationAddress: ''
   }
 
-  // COORDS
-  getCoords = () => {
+  componentDidMount() {
+    this.findCoordsAndCallAPIs();
+  }
+
+  findCoordsAndCallAPIs = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       this.setState({
         coords: {
@@ -27,21 +30,13 @@ class Coords extends Component {
           lon: position.coords.longitude
         }
       })
+      this.bringLocationAddress();
+      this.bringWeatherData();
     })
-  }
-  
-  displayCoords = () => {  //unused
-    if ("geolocation" in navigator) {
-      this.getCoords();
-      return ` ${this.state.coords.lat}, ${this.state.coords.lon}`;
-    }
-    else {
-      return ` Geolocation is disabled`;
-    }
   }
 
   bringWeatherData = () => {
-    let coords = this.state.coords;
+    let coords = this.state.coords;         //repeating code
     const options = {
       method: 'POST',
       headers: {
@@ -59,7 +54,7 @@ class Coords extends Component {
   }
 
   bringLocationAddress = () => {
-    let coords = this.state.coords;
+    let coords = this.state.coords;         //repeating code
     const options = {
       method: 'POST',
       headers: {
@@ -80,15 +75,18 @@ class Coords extends Component {
       return (
         <div>
           <p className={styles.coordsText}>
-            {this.getCoords()}
+            {}
           </p>
-          <Button variant="contained" color="primary" onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}>Get Weather Info</Button>
+          <Button variant="contained" color="primary" onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}>Loading Weather ...</Button>
         </div>
       )
     }
     else {
       return (
         <Box>
+          <p className={styles.coordsText}>
+            {}
+          </p>
           <p className={styles.coordsText}>
             Location: {`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`}
           </p>
@@ -104,7 +102,7 @@ class Coords extends Component {
             color="primary"
             onClick={() => {this.bringWeatherData(); this.bringLocationAddress()}}
             mb={2}>
-            Get Weather Info
+            Refresh
           </Button>
 
         </Box>
@@ -115,4 +113,3 @@ class Coords extends Component {
 }
 
 export default Coords;
-
