@@ -8,6 +8,9 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
   },
+  typography: {
+    alignItems: 'center'
+  }
 });
 
 export default function SimpleAppBar() {
@@ -15,10 +18,10 @@ export default function SimpleAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="primary">
+      <AppBar position="static" color="primary" className={classes.typography}>
         <Toolbar>
-          <Typography variant="h6" color="inherit">
-            Weather App
+          <Typography variant="h6" color="inherit" align="center">
+            WEATHER
           </Typography>
         </Toolbar>
       </AppBar>
