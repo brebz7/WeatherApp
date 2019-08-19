@@ -31,13 +31,13 @@ class Body extends Component {
           lon: position.coords.longitude
         }
       })
-      this.bringLocationAddress();
-      this.bringWeatherData();
+      this.fetchDataAndSetState('/api/coords');
+      this.fetchDataAndSetState('/api/locationAddress');
     })
   }
 
-  bringWeatherData = () => {
-    let coords = this.state.coords;         //repeating code
+  fetchDataAndSetState = (location) => {
+    let { coords } = this.state;
     const options = {
       method: 'POST',
       headers: {
@@ -45,29 +45,13 @@ class Body extends Component {
       },
       body: JSON.stringify(coords)
     }
-
-    fetch(`/api/coords`, options)
+    fetch(location, options)
       .then(response => response.json())
-      .then(infoWeather => {
-        console.log(infoWeather);
-        this.setState({ infoWeatherReceived: true, infoWeather })
-      });
-  }
-
-  bringLocationAddress = () => {
-    let coords = this.state.coords;         //repeating code
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(coords)
-    }
-    fetch(`/api/locationAddress`, options)
-      .then(response => response.json())
-      .then(locationAddress => {
-        console.log(locationAddress);
-        this.setState({ locationAddressReceived: true, locationAddress })
+      .then(data => {
+        if (location === '/api/coords')
+          this.setState({ infoWeatherReceived: true, infoWeather: data });
+        else if (location === '/api/locationAddress')
+          this.setState({ locationAddressReceived: true, locationAddress: data });
       })
   }
 
