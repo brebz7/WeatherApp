@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './components/header.js';
-import Coords from './components/coords.js';
+import Body from './components/body.js';
 
 
 import Container from '@material-ui/core/Container';
@@ -12,7 +12,7 @@ const App = () => {
   return (
   <Container maxWidth="sm">
     <Header />
-    <Coords />
+    <Body />
   </Container>  
   )              
 }
