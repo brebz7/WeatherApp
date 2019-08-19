@@ -30,7 +30,7 @@ export default function LocationCard(props) {
           {props.title}
         </Typography>
         <Typography className={classes.data} variant="h5" component="h2">
-          {props.data}
+          {props.data.town}, {props.data.county}
         </Typography>
       </CardContent>
     </Card>
