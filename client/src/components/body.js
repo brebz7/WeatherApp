@@ -66,9 +66,10 @@ class Body extends Component {
     else {
       return (
         <Box>
-          <p>
-            <LocationCard title="Location" data={`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`} />
-          </p>
+          <Box mt={1} mb={2}>
+            <LocationCard mb={5} title="Location" data={`${this.state.locationAddress.town}, ${this.state.locationAddress.county}`} />
+          </Box>
+
           <WeatherInformation data={this.state.infoWeather} />
           <Box mb={2} onClick={this.sliderMouseDown} >
             <HourlyWeatherInformation
