@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './comps.module.css';
 import WeatherCard from './weatherCard.js';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';

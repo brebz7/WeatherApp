@@ -1,6 +1,4 @@
 import React from 'react';
-import styles from './comps.module.css';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -34,13 +32,13 @@ const HourlyWeatherInformation = (props) => {
       <Table className={classes.table}>
         {<TableBody>
           <TableRow>
-            {rows.map(row => (
-              <TableCell>{row.time}</TableCell>
+            {rows.map((row, i) => (
+              <TableCell key={i}>{row.time}</TableCell>
             ))}
           </TableRow>
           <TableRow>
-            {rows.map(row => (
-              <TableCell>{row.temperature}</TableCell>
+            {rows.map((row, i) => (
+              <TableCell key={i}>{row.temperature}</TableCell>
             ))}
           </TableRow>
         </TableBody>}
