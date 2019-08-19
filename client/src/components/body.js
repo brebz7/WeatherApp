@@ -68,7 +68,7 @@ class Body extends Component {
         <Box>
           <LocationCard mb={5} title="Location" data={this.state.locationAddress} />
           <WeatherInformation data={this.state.infoWeather} />
-          <Box mb={2} onClick={this.sliderMouseDown} >
+          <Box mb={2} >
             <HourlyWeatherInformation
               className={horizontalScrollBarStyle}
               data={this.state.infoWeather}
@@ -78,7 +78,7 @@ class Body extends Component {
             <Button
               variant="contained"
               color="primary"
-              onClick={() => { this.bringWeatherData(); this.bringLocationAddress() }}
+              onClick={this.findCoordsAndCallAPIs}
               mb={2}>
               Refresh
           </Button>
