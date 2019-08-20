@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Container from '@material-ui/core/Container';
 import Header from './components/header.js';
 import Body from './components/body.js';
-
-
-import Container from '@material-ui/core/Container';
-
 
 const App = () => {
   return (

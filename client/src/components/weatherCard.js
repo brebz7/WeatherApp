@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function WeatherCard(props) {
+export default function WeatherCard({title, data}) {
   const classes = useStyles();
 
   return (
@@ -25,10 +25,10 @@ export default function WeatherCard(props) {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            {props.title}
+            {title}
           </Typography>
           <Typography variant="h5" component="h2">
-            {props.data}
+            {data}
           </Typography>
         </CardContent>
       </Card>
