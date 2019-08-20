@@ -7,8 +7,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 
-import horizontalScrollBarStyle from './horizontalScrollBar.module.css';
-
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
