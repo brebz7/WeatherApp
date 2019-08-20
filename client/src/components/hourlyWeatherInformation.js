@@ -20,34 +20,33 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function createData(time, temperature) {
+function createTimeAndTempObj(time, temperature) {
   return { time, temperature }
 }
 
-const HourlyWeatherInformation = (props) => {
-  const rows = [];
-  for (let i = 1; i <= 24; i++)
-    rows.push(createData(props.data.hourly.data[i].time, props.data.hourly.data[i].temperature));
-
+const HourlyWeatherInformation = ({ data: { hourly } }) => {
   const classes = useStyles();
+  const hourlyWeatherDataArray = [];
+  for (let i = 1; i <= 24; i++)
+    hourlyWeatherDataArray.push(createTimeAndTempObj(hourly.data[i].time, hourly.data[i].temperature));
+
   return (
-    <div  className={styles.horizontalScrollBarStyle}>
+    <div className={styles.horizontalScrollBarStyle}>
       <Box mb={2}>
         <Paper className={classes.root}>
           <Table className={classes.table}>
             {<TableBody>
               <TableRow>
-                {rows.map((row, i) => (
-                  <TableCell key={i}>{row.time}</TableCell>
+                {hourlyWeatherDataArray.map((hourlyWeatherData, i) => (
+                  <TableCell key={i}>{hourlyWeatherData.time}</TableCell>
                 ))}
               </TableRow>
               <TableRow>
-                {rows.map((row, i) => (
-                  <TableCell key={i}>{row.temperature}</TableCell>
+                {hourlyWeatherDataArray.map((hourlyWeatherData, i) => (
+                  <TableCell key={i}>{hourlyWeatherData.temperature}</TableCell>
                 ))}
               </TableRow>
             </TableBody>}
-
           </Table>
         </Paper>
       </Box>
