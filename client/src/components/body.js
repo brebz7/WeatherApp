@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import horizontalScrollBarStyle from './horizontalScrollBar.module.css';
-
 import Box from '@material-ui/core/Box';
 import WeatherInformation from './weatherInformation';
 import HourlyWeatherInformation from './hourlyWeatherInformation';
@@ -63,7 +61,7 @@ class Body extends Component {
         <Box>
           <LocationCard mb={5} title="Location" data={this.state.locationAddress} />
           <WeatherInformation data={this.state.infoWeather} />
-          <HourlyWeatherInformation className={horizontalScrollBarStyle} data={this.state.infoWeather} />
+          <HourlyWeatherInformation data={this.state.infoWeather} />
           <RefreshButton onClick={this.findCoordsAndCallAPIs} />
         </Box>
       )
