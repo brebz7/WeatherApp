@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-
-import styles from './comps.module.css';
 import horizontalScrollBarStyle from './horizontalScrollBar.module.css';
 
+import Box from '@material-ui/core/Box';
 import WeatherInformation from './weatherInformation';
 import HourlyWeatherInformation from './hourlyWeatherInformation';
 import LocationCard from './locationCard';
 import RefreshButton from './refreshButton';
+import LoadingWeatherCard from './loadingWeatherCard';
 
 class Body extends Component {
   state = {
@@ -58,11 +56,7 @@ class Body extends Component {
 
   render() {
     if (!this.state.infoWeatherReceived || !this.state.locationAddressReceived) {
-      return (
-        <div className={styles.loadingButtonContainer}>
-          <Button variant="contained" color="primary">Loading Weather ...</Button>
-        </div>
-      )
+      return <LoadingWeatherCard />
     }
     else {
       return (
