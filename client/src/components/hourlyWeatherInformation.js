@@ -7,6 +7,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 
+import styles from './CSS/horizontalScrollBar.module.css';
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -29,26 +31,27 @@ const HourlyWeatherInformation = (props) => {
 
   const classes = useStyles();
   return (
-    <Box mb={2} className={'horizontalScrollBarStyle'}>
-      <Paper className={classes.root}>
-        <Table className={classes.table}>
-          {<TableBody>
-            <TableRow>
-              {rows.map((row, i) => (
-                <TableCell key={i}>{row.time}</TableCell>
-              ))}
-            </TableRow>
-            <TableRow>
-              {rows.map((row, i) => (
-                <TableCell key={i}>{row.temperature}</TableCell>
-              ))}
-            </TableRow>
-          </TableBody>}
+    <div  className={styles.horizontalScrollBarStyle}>
+      <Box mb={2}>
+        <Paper className={classes.root}>
+          <Table className={classes.table}>
+            {<TableBody>
+              <TableRow>
+                {rows.map((row, i) => (
+                  <TableCell key={i}>{row.time}</TableCell>
+                ))}
+              </TableRow>
+              <TableRow>
+                {rows.map((row, i) => (
+                  <TableCell key={i}>{row.temperature}</TableCell>
+                ))}
+              </TableRow>
+            </TableBody>}
 
-        </Table>
-      </Paper>
-    </Box>
-
+          </Table>
+        </Paper>
+      </Box>
+    </div>
   );
 }
 

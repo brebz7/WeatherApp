@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import styles from './comps.module.css';
+import styles from './CSS/comps.module.css';
 
 const LoadingWeatherCard = () => {
   return (

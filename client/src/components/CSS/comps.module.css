@@ -1,0 +1,18 @@
+.coordsText {
+  font-family: Roboto;
+}
+.weatherText {
+  font-family: Roboto;
+}
+
+.loadingButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.refreshButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
