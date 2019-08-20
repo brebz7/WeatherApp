@@ -14,7 +14,6 @@ const WeatherInformation = (props) => {
         </Grid>
         <Grid item md={6} xs={12} >
           <WeatherCard
-
             data={`${((props.data.currently.temperature - 32) * 5 / 9).toFixed(2)} °C`}
             title={'Temperature'} />
         </Grid>
