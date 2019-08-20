@@ -9,6 +9,7 @@ import horizontalScrollBarStyle from './horizontalScrollBar.module.css';
 import WeatherInformation from './weatherInformation';
 import HourlyWeatherInformation from './hourlyWeatherInformation';
 import LocationCard from './locationCard';
+import RefreshButton from './refreshButton';
 
 class Body extends Component {
   state = {
@@ -69,15 +70,7 @@ class Body extends Component {
           <LocationCard mb={5} title="Location" data={this.state.locationAddress} />
           <WeatherInformation data={this.state.infoWeather} />
           <HourlyWeatherInformation className={horizontalScrollBarStyle} data={this.state.infoWeather} />
-          <div className={styles.refreshButtonContainer}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={this.findCoordsAndCallAPIs}
-              mb={2}>
-              Refresh
-          </Button>
-          </div>
+          <RefreshButton onClick={this.findCoordsAndCallAPIs} />
         </Box>
       )
     }
