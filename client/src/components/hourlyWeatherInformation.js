@@ -5,6 +5,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,23 +29,26 @@ const HourlyWeatherInformation = (props) => {
 
   const classes = useStyles();
   return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        {<TableBody>
-          <TableRow>
-            {rows.map((row, i) => (
-              <TableCell key={i}>{row.time}</TableCell>
-            ))}
-          </TableRow>
-          <TableRow>
-            {rows.map((row, i) => (
-              <TableCell key={i}>{row.temperature}</TableCell>
-            ))}
-          </TableRow>
-        </TableBody>}
+    <Box mb={2} >
+      <Paper className={classes.root}>
+        <Table className={classes.table}>
+          {<TableBody>
+            <TableRow>
+              {rows.map((row, i) => (
+                <TableCell key={i}>{row.time}</TableCell>
+              ))}
+            </TableRow>
+            <TableRow>
+              {rows.map((row, i) => (
+                <TableCell key={i}>{row.temperature}</TableCell>
+              ))}
+            </TableRow>
+          </TableBody>}
 
-      </Table>
-    </Paper>
+        </Table>
+      </Paper>
+    </Box>
+
   );
 }
 

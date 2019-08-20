@@ -68,12 +68,7 @@ class Body extends Component {
         <Box>
           <LocationCard mb={5} title="Location" data={this.state.locationAddress} />
           <WeatherInformation data={this.state.infoWeather} />
-          <Box mb={2} >
-            <HourlyWeatherInformation
-              className={horizontalScrollBarStyle}
-              data={this.state.infoWeather}
-            />
-          </Box>
+          <HourlyWeatherInformation className={horizontalScrollBarStyle} data={this.state.infoWeather} />
           <div className={styles.refreshButtonContainer}>
             <Button
               variant="contained"
