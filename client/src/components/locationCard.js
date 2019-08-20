@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LocationCard(props) {
+export default function LocationCard({ title, data }) {
   const classes = useStyles();
 
   return (
@@ -29,10 +29,10 @@ export default function LocationCard(props) {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
-            {props.title}
+            {title}
           </Typography>
           <Typography className={classes.data} variant="h5" component="h2">
-            {props.data.town}, {props.data.county}
+            props.data.town}, {data.county}
           </Typography>
         </CardContent>
       </Card>
