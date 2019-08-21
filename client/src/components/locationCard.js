@@ -21,8 +21,19 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LocationCard({ title, data }) {
+function createAddress(data) {
+  let address = data
+    .filter(addrCateg => addrCateg ? addrCateg : null)
+    .slice(0, 3)
+    .toString()
+    .replace(/,/g, ', ');
+    
+  return address;
+};
+
+const LocationCard = ({ title, data }) => {
   const classes = useStyles();
+  const address = createAddress(data);
 
   return (
     <Box mt={1} mb={2}>
@@ -32,11 +43,13 @@ export default function LocationCard({ title, data }) {
             {title}
           </Typography>
           <Typography className={classes.data} variant="h5" component="h2">
-            {data.town}, {data.county}
+            {address}
           </Typography>
         </CardContent>
       </Card>
     </Box>
 
   );
-}
+};
+
+export default LocationCard;
