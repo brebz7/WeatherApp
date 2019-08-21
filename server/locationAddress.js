@@ -6,8 +6,8 @@ const LocationIqKey = process.env.API_KEY_LOCATIONIQ;
 
 locationAddress.post('/', (req, res) => {
   let coords = req.body;
-  let lat = coords.lat;
-  let lon = coords.lon;
+  let {lat, lon} = coords;
+
   fetch(`https://eu1.locationiq.com/v1/reverse.php?key=${LocationIqKey}&lat=${lat}&lon=${lon}&format=json`)
     .then(response => response.json())
     .then(data => {
