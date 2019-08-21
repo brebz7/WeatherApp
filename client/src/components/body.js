@@ -28,7 +28,7 @@ class Body extends Component {
           lon: position.coords.longitude
         }
       })
-      this.fetchDataAndSetState('/api/coords');
+      this.fetchDataAndSetState('/api/infoWeather');
       this.fetchDataAndSetState('/api/locationAddress');
     })
   }
@@ -45,7 +45,7 @@ class Body extends Component {
     fetch(location, options)
       .then(response => response.json())
       .then(data => {
-        if (location === '/api/coords')
+        if (location === '/api/infoWeather')
           this.setState({ infoWeatherReceived: true, infoWeather: data });
         else if (location === '/api/locationAddress')
           this.setState({ locationAddressReceived: true, locationAddress: data });
