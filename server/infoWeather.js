@@ -7,8 +7,7 @@ const DarkSkyKey = process.env.API_KEY_DARKSKY;
 
 infoWeather.post('/', (req, res) => {
   let coords = req.body;
-  let lat = coords.lat;
-  let lon = coords.lon;
+  let { lat, lon } = coords;
 
   fetch(`https://api.darksky.net/forecast/${DarkSkyKey}/${lat},${lon}`)
     .then(response => response.json())
